@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImportData.cs" />
     <Compile Include="CovidData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
