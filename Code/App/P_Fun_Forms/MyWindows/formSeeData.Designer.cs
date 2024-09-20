@@ -1,6 +1,6 @@
-﻿namespace P_Fun_Forms
+﻿namespace P_Fun_Forms.MyWindows
 {
-    partial class Form1
+    partial class formSeeData
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -41,7 +41,7 @@
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(12, 380); // Adjust location below the DataGridView
+            this.importButton.Location = new System.Drawing.Point(12, 380);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(100, 23);
             this.importButton.TabIndex = 1;

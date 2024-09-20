@@ -1,3 +1,5 @@
+using P_Fun_Forms.MyWindows;
+
 namespace P_Fun_Forms
 {
     internal static class Program
@@ -11,7 +13,8 @@ namespace P_Fun_Forms
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new P_Fun_Forms.Form1());
+            //Application.Run(new formSeeData());
+            Application.Run(new Graph());
         }
     }
 }
