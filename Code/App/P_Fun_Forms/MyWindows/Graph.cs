@@ -1,4 +1,5 @@
-﻿using ScottPlot;
+﻿using P_Fun_Forms.Class;
+using ScottPlot;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,13 +39,14 @@ namespace P_Fun_Forms.MyWindows
 
         private void ImportData()
         {
-            double[] dataX = { 1, 2, 3, 4, 5 };
-            double[] dataY = { 1, 4, 9, 16, 25 };
-            formsPlot1.Plot.Add.Scatter(dataX, dataY);
+            string csvFilePath = "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_VD_total.csv";
+            var import = new ImportData();
+            List<CovidData> covidDataList = import.ImportCsvData(csvFilePath);
 
-            double[] dataX1 = { 1, 2, 3, 4, 5 };
-            double[] dataY1 = { 3, 7, 12, 19, 28 };
-            formsPlot1.Plot.Add.Scatter(dataX1, dataY1);
+            var dates = covidDataList.Select(d => d.date.ToOADate()).ToArray();
+            var current_hosp = covidDataList.Select(h => (double)(h.current_hosp ?? 0)).ToArray();
+
+            formsPlot1.Plot.Add.Scatter(dates, current_hosp);
         }
 
         private void ConfigGraph()
