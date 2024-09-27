@@ -51,6 +51,7 @@ namespace P_Fun_Forms.MyWindows
 
         private void ConfigGraph()
         {
+            formsPlot1.Plot.Axes.DateTimeTicksBottom();
             formsPlot1.Plot.XLabel("Date");
             formsPlot1.Plot.YLabel("Nombres de cas covid");
         }
