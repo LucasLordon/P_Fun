@@ -27,7 +27,7 @@ namespace P_Fun_Forms.MyWindows
             CH.TextBackgroundColor = CH.HorizontalLine.Color;
 
             formsPlot1.MouseMove += FormsPlot1_MouseMove;
-            formsPlot1.MouseDown += FormsPlot1_MouseDown;
+            //formsPlot1.MouseDown += FormsPlot1_MouseDown;
 
             formsPlot1.Refresh();
         }
@@ -65,11 +65,11 @@ namespace P_Fun_Forms.MyWindows
             CH.HorizontalLine.Text = $"{mouseCoordinates.Y:N3}";
             formsPlot1.Refresh();
         }
-        private void FormsPlot1_MouseDown(object sender, MouseEventArgs e)
-        {
-            Pixel mousePixel = new(e.X, e.Y);
-            Coordinates mouseCoordinates = formsPlot1.Plot.GetCoordinates(mousePixel);
-            Text = $"X={mouseCoordinates.X:N3}, Y={mouseCoordinates.Y:N3} (mouse down)";
-        }
+        //private void FormsPlot1_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    Pixel mousePixel = new(e.X, e.Y);
+        //    Coordinates mouseCoordinates = formsPlot1.Plot.GetCoordinates(mousePixel);
+        //    Text = $"X={mouseCoordinates.X:N3}, Y={mouseCoordinates.Y:N3} (mouse down)";
+        //}
     }
 }
