@@ -17,8 +17,10 @@ namespace P_Fun_Forms.MyWindows
     public partial class formSeeData : System.Windows.Forms.Form
 
     {
-        public formSeeData()
+        private string canton;
+        public formSeeData(string canton)
         {
+            this.canton = canton;
             InitializeComponent();
         }
 
@@ -31,3 +33,4 @@ namespace P_Fun_Forms.MyWindows
         }
     }
 }
+
