@@ -55,7 +55,6 @@ namespace P_Fun_Forms.MyWindows
         {
             InitializeComponent();
             InitializeCheckboxes();
-            ImportData();
             ConfigGraph();
 
             CH = formsPlot1.Plot.Add.Crosshair(0, 0);
@@ -71,32 +70,13 @@ namespace P_Fun_Forms.MyWindows
 
         }
 
-        private void ImportData()
+        private List<CovidData> ImportData(string csvFilePath)
         {
-            List<CovidData> combinedCovidDataList = new List<CovidData>();
-
-            foreach (CheckBox checkBox in cantonSelectionPanel.Controls.OfType<CheckBox>())
-            {
-                if (checkBox.Checked)
-                {
-                    string selectedCanton = checkBox.Text;
-                    string csvFilePath = cantonPaths[selectedCanton];
-
-                    var import = new ImportData();
-                    List<CovidData> covidDataList = import.ImportCsvData(csvFilePath);
-
-                    combinedCovidDataList.AddRange(covidDataList);
-
-                }
-            }
-
-            var dates = combinedCovidDataList.Select(d => d.date.ToOADate()).ToArray();
-            var current_hosp = combinedCovidDataList.Select(h => (double)(h.current_hosp ?? 0)).ToArray();
-
-            formsPlot1.Plot.Add.Scatter(dates, current_hosp);
-
-
+            var import = new ImportData();
+            List<CovidData> covidDataList = import.ImportCsvData(csvFilePath);
+            return covidDataList;
         }
+
         private void ConfigGraph()
         {
             formsPlot1.Plot.Axes.DateTimeTicksBottom();
@@ -129,41 +109,47 @@ namespace P_Fun_Forms.MyWindows
                 };
 
                 var cantonValue = cantonPaths[canton];
-                Button openDataButton = new Button
-                {
-                    Text = "See Data",
-                    Tag = cantonValue.value,
-                    AutoSize = true
-                };
-
-                openDataButton.Click += OpenDataButton_Click;
 
                 flowLayoutPanel.Controls.Add(checkBox);
-                flowLayoutPanel.Controls.Add(openDataButton);
+
             }
 
             cantonSelectionPanel.Controls.Add(flowLayoutPanel);
         }
 
-
-        private void OpenDataButton_Click(object sender, EventArgs e)
-        {
-            Button clickedButton = sender as Button;
-            if (clickedButton != null)
-            {
-                var m = new formSeeData();
-                m.Show();
-               string canton = clickedButton.Tag.ToString();
-                Application.Run(new formSeeData(canton));
-            }
-        }
         private void onShowDataButtonClick(object sender, EventArgs e)
         {
-            ImportData();
-            formsPlot1.Plot.Axes.AutoScale();
-            formsPlot1.Refresh();
-            formsPlot1.Plot.Axes.AutoScale();
+            formsPlot1.Plot.Clear();
+
+            List<CovidData> combinedCovidDataList = new List<CovidData>();
+
+            FlowLayoutPanel flowLayoutPanel = cantonSelectionPanel.Controls.OfType<FlowLayoutPanel>().FirstOrDefault();
+
+            if (flowLayoutPanel != null)
+            {
+                foreach (CheckBox checkBox in flowLayoutPanel.Controls.OfType<CheckBox>())
+                {
+                    if (checkBox.Checked)
+                    {
+                        string selectedCanton = checkBox.Text;
+                        string csvFilePath = cantonPaths[selectedCanton];
+
+                        List<CovidData> covidDataList = ImportData(csvFilePath);
+
+
+                        var dates = covidDataList.Select(d => d.date.ToOADate()).ToArray();
+                        var current_hosp = covidDataList.Select(h => (double)(h.current_hosp ?? 0)).ToArray();
+
+                        formsPlot1.Plot.Add.Scatter(dates, current_hosp);
+                    }
+                }
+
+
+                formsPlot1.Plot.Axes.AutoScale();
+                formsPlot1.Refresh();
+            }
         }
+
 
     }
 }
