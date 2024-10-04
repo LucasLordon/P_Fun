@@ -140,6 +140,10 @@ namespace P_Fun_Forms.MyWindows
                         var dates = covidDataList.Select(d => d.date.ToOADate()).ToArray();
                         var current_hosp = covidDataList.Select(h => (double)(h.current_hosp ?? 0)).ToArray();
 
+                        var current_hosp = covidDataList
+                            .Where(h => h.current_hosp.HasValue)  
+                            .Select(h => (double)h.current_hosp.Value) 
+                            .ToArray();
                         formsPlot1.Plot.Add.Scatter(dates, current_hosp);
                     }
                 }
