@@ -14,7 +14,8 @@ public class ImportData
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 Delimiter = ",",
-                MissingFieldFound = null
+                MissingFieldFound = null,
+                HeaderValidated = null
             }))
             {
                 records = new List<CovidData>(csv.GetRecords<CovidData>());
