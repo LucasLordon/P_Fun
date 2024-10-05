@@ -48,9 +48,7 @@ namespace P_Fun_Forms.MyWindows
         { "ZH", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_ZH_total.csv" },
         { "AG", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_AG_total.csv" }
     };
-
         readonly ScottPlot.Plottables.Crosshair CH;
-
         public Graph()
         {
             InitializeComponent();
@@ -64,19 +62,16 @@ namespace P_Fun_Forms.MyWindows
 
             formsPlot1.Refresh();
         }
-
         private void Graph_Load(object sender, EventArgs e)
         {
 
         }
-
         private List<CovidData> ImportData(string csvFilePath)
         {
             var import = new ImportData();
             List<CovidData> covidDataList = import.ImportCsvData(csvFilePath);
             return covidDataList;
         }
-
         private void ConfigGraph()
         {
             formsPlot1.Plot.Axes.DateTimeTicksBottom();
@@ -93,7 +88,6 @@ namespace P_Fun_Forms.MyWindows
             CH.HorizontalLine.Text = $"{mouseCoordinates.Y:N3}";
             formsPlot1.Refresh();
         }
-
         private void InitializeCheckboxes()
         {
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
@@ -116,10 +110,10 @@ namespace P_Fun_Forms.MyWindows
 
             cantonSelectionPanel.Controls.Add(flowLayoutPanel);
         }
-
         private void onShowDataButtonClick(object sender, EventArgs e)
         {
             formsPlot1.Plot.Clear();
+
 
             List<CovidData> combinedCovidDataList = new List<CovidData>();
 
@@ -149,10 +143,18 @@ namespace P_Fun_Forms.MyWindows
 
 
                 formsPlot1.Plot.Axes.AutoScale();
+                if (isDefaultView.Checked)
+                {
+                    limitXAxys(formsPlot1.Plot, dateTimePicker1, dateTimePicker2);
+                }
                 formsPlot1.Refresh();
             }
         }
 
+        private void limitXAxys (ScottPlot.Plot plot, System.Windows.Forms.DateTimePicker from, System.Windows.Forms.DateTimePicker to)
+        {
+            plot.Axes.SetLimits(from.Value.ToOADate(), to.Value.ToOADate());
+        }
 
     }
 }
