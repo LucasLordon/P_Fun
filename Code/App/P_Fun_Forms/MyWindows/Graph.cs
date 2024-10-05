@@ -130,16 +130,27 @@ namespace P_Fun_Forms.MyWindows
 
                         List<CovidData> covidDataList = ImportData(csvFilePath);
 
-
                         var dates = covidDataList.Select(d => d.date.ToOADate()).ToArray();
 
+                        if (isLimitedData.Checked)
+                        {
+                            covidDataList = covidDataList
+                                .Where(d => d.date >= limitDatatFrom.Value && d.date <= limitDataTo.Value)
+                                .ToList();
+
+
+                            dates = covidDataList.Select(d => d.date.ToOADate()).ToArray();
+                        }
+
                         var current_hosp = covidDataList
-                            .Where(h => h.current_hosp.HasValue)  
-                            .Select(h => (double)h.current_hosp.Value) 
+                            .Where(h => h.current_hosp.HasValue)
+                            .Select(h => (double)h.current_hosp.Value)
                             .ToArray();
+
                         formsPlot1.Plot.Add.Scatter(dates, current_hosp);
                     }
                 }
+
 
 
                 formsPlot1.Plot.Axes.AutoScale();

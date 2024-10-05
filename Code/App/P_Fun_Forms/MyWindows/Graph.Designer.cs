@@ -36,6 +36,11 @@
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             isDefaultView = new CheckBox();
+            isLimitedData = new CheckBox();
+            limitDatatFrom = new DateTimePicker();
+            limitDataTo = new DateTimePicker();
+            label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // formsPlot1
@@ -106,16 +111,65 @@
             isDefaultView.AutoSize = true;
             isDefaultView.Location = new Point(772, 277);
             isDefaultView.Name = "isDefaultView";
-            isDefaultView.Size = new Size(159, 19);
+            isDefaultView.Size = new Size(153, 19);
             isDefaultView.TabIndex = 7;
-            isDefaultView.Text = "Activé la vue par default :";
+            isDefaultView.Text = "Activé la vue par default";
             isDefaultView.UseVisualStyleBackColor = true;
+            // 
+            // isLimitedData
+            // 
+            isLimitedData.AutoSize = true;
+            isLimitedData.Location = new Point(772, 83);
+            isLimitedData.Name = "isLimitedData";
+            isLimitedData.Size = new Size(194, 19);
+            isLimitedData.TabIndex = 8;
+            isLimitedData.Text = "Activé la limitation des données";
+            isLimitedData.UseVisualStyleBackColor = true;
+            // 
+            // limitDatatFrom
+            // 
+            limitDatatFrom.Location = new Point(772, 129);
+            limitDatatFrom.Name = "limitDatatFrom";
+            limitDatatFrom.Size = new Size(200, 23);
+            limitDatatFrom.TabIndex = 9;
+            // 
+            // limitDataTo
+            // 
+            limitDataTo.Location = new Point(772, 179);
+            limitDataTo.Name = "limitDataTo";
+            limitDataTo.Size = new Size(200, 23);
+            limitDataTo.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(772, 105);
+            label3.Name = "label3";
+            label3.Size = new Size(114, 21);
+            label3.TabIndex = 11;
+            label3.Text = "Date de début :";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(772, 155);
+            label4.Name = "label4";
+            label4.Size = new Size(92, 21);
+            label4.TabIndex = 12;
+            label4.Text = "Date de fin :";
             // 
             // Graph
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1106, 481);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(limitDataTo);
+            Controls.Add(limitDatatFrom);
+            Controls.Add(isLimitedData);
             Controls.Add(isDefaultView);
             Controls.Add(dateTimePicker2);
             Controls.Add(dateTimePicker1);
@@ -141,5 +195,10 @@
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private CheckBox isDefaultView;
+        private CheckBox isLimitedData;
+        private DateTimePicker limitDatatFrom;
+        private DateTimePicker limitDataTo;
+        private Label label3;
+        private Label label4;
     }
 }
