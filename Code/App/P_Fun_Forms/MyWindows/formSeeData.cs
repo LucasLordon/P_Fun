@@ -24,7 +24,7 @@ namespace P_Fun_Forms.MyWindows
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            string csvFilePath = "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_VD_total.csv";
+            string csvFilePath = "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_AI_total.csv";
             var importer = new ImportData();
             List<CovidData> covidDataList = importer.ImportCsvData(csvFilePath);
             dataGridView1.DataSource = covidDataList;

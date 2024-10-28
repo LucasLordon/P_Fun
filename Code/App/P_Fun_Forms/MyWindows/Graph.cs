@@ -20,34 +20,35 @@ namespace P_Fun_Forms.MyWindows
     public partial class Graph : System.Windows.Forms.Form
     {
         private Dictionary<string, string> cantonPaths = new Dictionary<string, string>
-    {
-        { "AI", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_AI_total.csv" },
-        { "AR", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_AR_total.csv" },
-        { "BE", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_BE_total.csv" },
-        { "BL", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_BL_total.csv" },
-        { "BS", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_BS_total.csv" },
-        { "FR", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_FR_total.csv" },
-        { "GE", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_GE_total.csv" },
-        { "GL", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_GL_total.csv" },
-        { "GR", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_GR_total.csv" },
-        { "JU", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_JU_total.csv" },
-        { "LU", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_LU_total.csv" },
-        { "NE", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_NE_total.csv" },
-        { "NW", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_NW_total.csv" },
-        { "OW", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_OW_total.csv" },
-        { "SG", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_SG_total.csv" },
-        { "SH", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_SH_total.csv" },
-        { "SO", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_SO_total.csv" },
-        { "SZ", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_SZ_total.csv" },
-        { "TG", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_TG_total.csv" },
-        { "TI", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_TI_total.csv" },
-        { "UR", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_UR_total.csv" },
-        { "VD", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_VD_total.csv" },
-        { "VS", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_VS_total.csv" },
-        { "ZG", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_ZG_total.csv" },
-        { "ZH", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_ZH_total.csv" },
-        { "AG", "C:\\Users\\pu61qgw\\Documents\\GitHub\\P_Fun\\Code\\Data\\COVID19_Fallzahlen_Kanton_AG_total.csv" }
-    };
+{
+    { "AI", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_AI_total.csv" },
+    { "AR", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_AR_total.csv" },
+    { "BE", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_BE_total.csv" },
+    { "BL", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_BL_total.csv" },
+    { "BS", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_BS_total.csv" },
+    { "FR", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_FR_total.csv" },
+    { "GE", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_GE_total.csv" },
+    { "GL", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_GL_total.csv" },
+    { "GR", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_GR_total.csv" },
+    { "JU", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_JU_total.csv" },
+    { "LU", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_LU_total.csv" },
+    { "NE", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_NE_total.csv" },
+    { "NW", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_NW_total.csv" },
+    { "OW", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_OW_total.csv" },
+    { "SG", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_SG_total.csv" },
+    { "SH", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_SH_total.csv" },
+    { "SO", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_SO_total.csv" },
+    { "SZ", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_SZ_total.csv" },
+    { "TG", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_TG_total.csv" },
+    { "TI", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_TI_total.csv" },
+    { "UR", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_UR_total.csv" },
+    { "VD", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_VD_total.csv" },
+    { "VS", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_VS_total.csv" },
+    { "ZG", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_ZG_total.csv" },
+    { "ZH", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_ZH_total.csv" },
+    { "AG", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_AG_total.csv" }
+};
+
         readonly ScottPlot.Plottables.Crosshair CH;
         public Graph()
         {
