@@ -183,6 +183,18 @@
             Load += Graph_Load;
             ResumeLayout(false);
             PerformLayout();
+
+            // Add Data Button
+            addDataButton = new Button();
+            addDataButton.Location = new Point(12, 430);
+            addDataButton.Name = "addDataButton";
+            addDataButton.Size = new Size(180, 40);
+            addDataButton.TabIndex = 13;
+            addDataButton.Text = "Add Data";
+            addDataButton.UseVisualStyleBackColor = true;
+            addDataButton.Click += addDataButton_Click;
+            Controls.Add(addDataButton);
+
         }
 
         #endregion
@@ -200,5 +212,7 @@
         private DateTimePicker limitDataTo;
         private Label label3;
         private Label label4;
+        private Button addDataButton;
+
     }
 }

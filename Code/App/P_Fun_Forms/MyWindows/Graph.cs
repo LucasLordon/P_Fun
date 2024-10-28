@@ -168,6 +168,20 @@ namespace P_Fun_Forms.MyWindows
             plot.Axes.SetLimits(from.Value.ToOADate(), to.Value.ToOADate());
         }
 
+        private void addDataButton_Click(object sender, EventArgs e)
+        {
+            using (AddDataFile addDataForm = new AddDataFile(cantonPaths))
+            {
+                if (addDataForm.ShowDialog() == DialogResult.OK)
+                {
+
+                    cantonSelectionPanel.Controls.Clear();
+                    InitializeCheckboxes();
+                }
+            }
+        }
+
+
     }
 }
 
