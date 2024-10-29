@@ -19,7 +19,7 @@ namespace P_Fun_Forms.MyWindows
 {
     public partial class Graph : System.Windows.Forms.Form
     {
-        private Dictionary<string, string> cantonPaths = new Dictionary<string, string>
+        public Dictionary<string, string> cantonPaths = new Dictionary<string, string>
 {
     { "AI", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_AI_total.csv" },
     { "AR", "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_AR_total.csv" },
@@ -63,23 +63,23 @@ namespace P_Fun_Forms.MyWindows
 
             formsPlot1.Refresh();
         }
-        private void Graph_Load(object sender, EventArgs e)
+        public void Graph_Load(object sender, EventArgs e)
         {
 
         }
-        private List<CovidData> ImportData(string csvFilePath)
+        public List<CovidData> ImportData(string csvFilePath)
         {
             var import = new ImportData();
             List<CovidData> covidDataList = import.ImportCsvData(csvFilePath);
             return covidDataList;
         }
-        private void ConfigGraph()
+        public void ConfigGraph()
         {
             formsPlot1.Plot.Axes.DateTimeTicksBottom();
             formsPlot1.Plot.XLabel("Date");
             formsPlot1.Plot.YLabel("Nombres de cas covid");
         }
-        private void FormsPlot1_MouseMove(object sender, MouseEventArgs e)
+        public void FormsPlot1_MouseMove(object sender, MouseEventArgs e)
         {
             Pixel mousePixel = new(e.X, e.Y);
             Coordinates mouseCoordinates = formsPlot1.Plot.GetCoordinates(mousePixel);
@@ -89,7 +89,7 @@ namespace P_Fun_Forms.MyWindows
             CH.HorizontalLine.Text = $"{mouseCoordinates.Y:N3}";
             formsPlot1.Refresh();
         }
-        private void InitializeCheckboxes()
+        public void InitializeCheckboxes()
         {
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
             flowLayoutPanel.Dock = DockStyle.Fill;
@@ -111,7 +111,7 @@ namespace P_Fun_Forms.MyWindows
 
             cantonSelectionPanel.Controls.Add(flowLayoutPanel);
         }
-        private void onShowDataButtonClick(object sender, EventArgs e)
+        public void onShowDataButtonClick(object sender, EventArgs e)
         {
             formsPlot1.Plot.Clear();
 
@@ -163,12 +163,12 @@ namespace P_Fun_Forms.MyWindows
             }
         }
 
-        private void limitXAxys (ScottPlot.Plot plot, System.Windows.Forms.DateTimePicker from, System.Windows.Forms.DateTimePicker to)
+        public void limitXAxys (ScottPlot.Plot plot, System.Windows.Forms.DateTimePicker from, System.Windows.Forms.DateTimePicker to)
         {
             plot.Axes.SetLimits(from.Value.ToOADate(), to.Value.ToOADate());
         }
 
-        private void addDataButton_Click(object sender, EventArgs e)
+        public void addDataButton_Click(object sender, EventArgs e)
         {
             using (AddDataFile addDataForm = new AddDataFile(cantonPaths))
             {

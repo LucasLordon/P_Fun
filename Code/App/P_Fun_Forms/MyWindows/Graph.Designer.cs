@@ -199,7 +199,7 @@
 
         #endregion
 
-        private ScottPlot.WinForms.FormsPlot formsPlot1;
+        public ScottPlot.WinForms.FormsPlot formsPlot1;
         private System.Windows.Forms.Panel cantonSelectionPanel; 
         private System.Windows.Forms.Button showDataButton;
         private Label label1;
