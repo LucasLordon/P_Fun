@@ -17,14 +17,16 @@ namespace P_Fun_Forms.MyWindows
     public partial class formSeeData : System.Windows.Forms.Form
 
     {
-        public formSeeData()
+        private string csvFilePath;
+
+        public formSeeData(string importCsvFilePath)
         {
             InitializeComponent();
+            csvFilePath = importCsvFilePath;
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            string csvFilePath = "..\\..\\..\\..\\..\\Data\\COVID19_Fallzahlen_Kanton_AI_total.csv";
             var importer = new ImportData();
             List<CovidData> covidDataList = importer.ImportCsvData(csvFilePath);
             dataGridView1.DataSource = covidDataList;

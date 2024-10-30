@@ -41,12 +41,13 @@
             limitDataTo = new DateTimePicker();
             label3 = new Label();
             label4 = new Label();
+            addDataButton = new Button();
             SuspendLayout();
             // 
             // formsPlot1
             // 
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Location = new Point(200, 12);
+            formsPlot1.Location = new Point(315, 12);
             formsPlot1.Name = "formsPlot1";
             formsPlot1.Size = new Size(566, 426);
             formsPlot1.TabIndex = 0;
@@ -56,7 +57,7 @@
             cantonSelectionPanel.AutoScroll = true;
             cantonSelectionPanel.Location = new Point(12, 12);
             cantonSelectionPanel.Name = "cantonSelectionPanel";
-            cantonSelectionPanel.Size = new Size(180, 350);
+            cantonSelectionPanel.Size = new Size(297, 350);
             cantonSelectionPanel.TabIndex = 1;
             // 
             // showDataButton
@@ -73,7 +74,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(772, 299);
+            label1.Location = new Point(887, 299);
             label1.Name = "label1";
             label1.Size = new Size(114, 21);
             label1.TabIndex = 3;
@@ -84,7 +85,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(772, 362);
+            label2.Location = new Point(887, 362);
             label2.Name = "label2";
             label2.Size = new Size(92, 21);
             label2.TabIndex = 4;
@@ -92,7 +93,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(772, 323);
+            dateTimePicker1.Location = new Point(887, 323);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 5;
@@ -100,7 +101,7 @@
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(772, 386);
+            dateTimePicker2.Location = new Point(887, 386);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
             dateTimePicker2.TabIndex = 6;
@@ -109,7 +110,7 @@
             // isDefaultView
             // 
             isDefaultView.AutoSize = true;
-            isDefaultView.Location = new Point(772, 277);
+            isDefaultView.Location = new Point(887, 277);
             isDefaultView.Name = "isDefaultView";
             isDefaultView.Size = new Size(153, 19);
             isDefaultView.TabIndex = 7;
@@ -119,7 +120,7 @@
             // isLimitedData
             // 
             isLimitedData.AutoSize = true;
-            isLimitedData.Location = new Point(772, 83);
+            isLimitedData.Location = new Point(887, 83);
             isLimitedData.Name = "isLimitedData";
             isLimitedData.Size = new Size(194, 19);
             isLimitedData.TabIndex = 8;
@@ -128,14 +129,14 @@
             // 
             // limitDatatFrom
             // 
-            limitDatatFrom.Location = new Point(772, 129);
+            limitDatatFrom.Location = new Point(887, 129);
             limitDatatFrom.Name = "limitDatatFrom";
             limitDatatFrom.Size = new Size(200, 23);
             limitDatatFrom.TabIndex = 9;
             // 
             // limitDataTo
             // 
-            limitDataTo.Location = new Point(772, 179);
+            limitDataTo.Location = new Point(887, 179);
             limitDataTo.Name = "limitDataTo";
             limitDataTo.Size = new Size(200, 23);
             limitDataTo.TabIndex = 10;
@@ -144,7 +145,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(772, 105);
+            label3.Location = new Point(887, 105);
             label3.Name = "label3";
             label3.Size = new Size(114, 21);
             label3.TabIndex = 11;
@@ -154,17 +155,27 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(772, 155);
+            label4.Location = new Point(887, 155);
             label4.Name = "label4";
             label4.Size = new Size(92, 21);
             label4.TabIndex = 12;
             label4.Text = "Date de fin :";
             // 
+            // addDataButton
+            // 
+            addDataButton.Location = new Point(12, 430);
+            addDataButton.Name = "addDataButton";
+            addDataButton.Size = new Size(180, 40);
+            addDataButton.TabIndex = 13;
+            addDataButton.Text = "Add Data";
+            addDataButton.UseVisualStyleBackColor = true;
+            addDataButton.Click += addDataButton_Click;
+            // 
             // Graph
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1106, 481);
+            ClientSize = new Size(1268, 601);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(limitDataTo);
@@ -178,23 +189,12 @@
             Controls.Add(showDataButton);
             Controls.Add(cantonSelectionPanel);
             Controls.Add(formsPlot1);
+            Controls.Add(addDataButton);
             Name = "Graph";
             Text = "Graph";
             Load += Graph_Load;
             ResumeLayout(false);
             PerformLayout();
-
-            // Add Data Button
-            addDataButton = new Button();
-            addDataButton.Location = new Point(12, 430);
-            addDataButton.Name = "addDataButton";
-            addDataButton.Size = new Size(180, 40);
-            addDataButton.TabIndex = 13;
-            addDataButton.Text = "Add Data";
-            addDataButton.UseVisualStyleBackColor = true;
-            addDataButton.Click += addDataButton_Click;
-            Controls.Add(addDataButton);
-
         }
 
         #endregion

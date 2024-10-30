@@ -103,14 +103,24 @@ namespace P_Fun_Forms.MyWindows
                     Checked = canton == "VD"
                 };
 
-                var cantonValue = cantonPaths[canton];
+                string cantonPath = cantonPaths[canton];
+
+                Button button = new Button
+                {
+                    Text = "See more"
+                    
+                };
+                button.Click += SeeDataButtonClick(cantonPath);
 
                 flowLayoutPanel.Controls.Add(checkBox);
-
+                flowLayoutPanel.Controls.Add(button);
             }
 
             cantonSelectionPanel.Controls.Add(flowLayoutPanel);
         }
+
+
+
         public void onShowDataButtonClick(object sender, EventArgs e)
         {
             formsPlot1.Plot.Clear();
@@ -179,6 +189,16 @@ namespace P_Fun_Forms.MyWindows
                     InitializeCheckboxes();
                 }
             }
+        }
+        public static EventHandler SeeDataButtonClick(string cantonPath)
+        {
+            return (sender, e) =>
+            {
+                using (formSeeData formSeeData = new formSeeData(cantonPath))
+                {
+                    formSeeData.ShowDialog();
+                }
+            };
         }
 
 
