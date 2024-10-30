@@ -159,6 +159,8 @@ namespace P_Fun_Forms.MyWindows
                             .ToArray();
 
                         formsPlot1.Plot.Add.Scatter(dates, current_hosp);
+                        var scatterPlot = formsPlot1.Plot.Add.Scatter(dates, current_hosp);
+                        scatterPlot.LegendText = selectedCanton;
                     }
                 }
 
